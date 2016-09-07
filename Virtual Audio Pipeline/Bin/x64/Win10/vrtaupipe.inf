@@ -3,7 +3,7 @@ Signature="$CHICAGO$"
 Class=MEDIA
 Provider=%SONICS%
 ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
-DriverVer=09/07/2016,15.19.41.917
+DriverVer=09/07/2016,17.54.55.743
 CatalogFile=sonics.cat
 
 [SourceDisksNames]

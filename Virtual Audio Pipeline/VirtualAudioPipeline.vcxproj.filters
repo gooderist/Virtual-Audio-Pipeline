@@ -13,6 +13,10 @@
       <UniqueIdentifier>{57219778-d789-4119-9017-6130fe9decb0}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{e43e6f9c-b6fd-44e2-9e00-f0e33b145933}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="adapter.cpp">
@@ -67,6 +71,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="vrtaupipe.inf" />
+    <Inf Include="vrtaupipe.inf">
+      <Filter>Driver Files</Filter>
+    </Inf>
   </ItemGroup>
 </Project>

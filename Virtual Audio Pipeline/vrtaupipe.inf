@@ -4,7 +4,7 @@ Class=MEDIA
 Provider=%SONICS%
 ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
 DriverVer = 02/22/2007, 6.0.6000.1
-;;CatalogFile=sonics.cat
+CatalogFile=sonics.cat
 
 [SourceDisksNames]
 222="SONICS Driver Disk","",222
