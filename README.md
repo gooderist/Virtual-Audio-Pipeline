@@ -1,3 +1,7 @@
+#NOTE: Before installing the driver
+
+This driver is not signed. To install it on your Windows machine you need to disable driver signature validation!
+
 # Virtual-Audio-Pipeline
 A WDM Virtual Audio Cable/Device
    It is a WDM based Virtual Audio Device Driver, can be used as a Virtual Sound Card. No Hardware is requred. Can be used as an Audio Loopback Device. The following are its Features 
