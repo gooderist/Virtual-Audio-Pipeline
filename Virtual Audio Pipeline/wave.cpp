@@ -696,7 +696,9 @@ Return Value:
         switch(value->ActiveSpeakerPositions)
         {
             case KSAUDIO_SPEAKER_MONO:
-                break;
+                // break;
+                // NOTE(will): trying to disable unsupported configurations
+                return STATUS_NOT_SUPPORTED;
             case KSAUDIO_SPEAKER_STEREO:
                 if (m_MaxChannelsPcm >= 2)
                 {
