@@ -59,13 +59,13 @@ DEFINE_GUIDSTRUCT("946A7B1A-EBBC-422a-A81F-F07C8D40D3B4", NAME_SONICSAUDIO);
 #define MAX_INPUT_STREAMS           1       // Number of render streams.
 #define MAX_TOTAL_STREAMS           MAX_OUTPUT_STREAMS + MAX_INPUT_STREAMS                      
 
-// PCM Info [6,6,8,32,8000,192000]
-#define MIN_CHANNELS                8       // Min Channels.
+// PCM Info
+#define MIN_CHANNELS                8 // TODO(will): support mic output settings other than MAX_CHANNELS / MAX_BITS / MAX_SAMPLE 2       // Min Channels.
 #define MAX_CHANNELS_PCM            8       // Max Channels.
-#define MIN_BITS_PER_SAMPLE_PCM     8       // Min Bits Per Sample
-#define MAX_BITS_PER_SAMPLE_PCM     32      // Max Bits Per Sample
-#define MIN_SAMPLE_RATE             8000    // Min Sample Rate
-#define MAX_SAMPLE_RATE             192000  // Max Sample Rate
+#define MIN_BITS_PER_SAMPLE_PCM     16      // Min Bits Per Sample
+#define MAX_BITS_PER_SAMPLE_PCM     24      // Max Bits Per Sample
+#define MIN_SAMPLE_RATE             44100   // Min Sample Rate
+#define MAX_SAMPLE_RATE             48000   // Max Sample Rate
 
 // Dma Settings.
 #define DMA_BUFFER_SIZE             0x32000
@@ -104,8 +104,6 @@ enum
 enum
 {
     KSPIN_TOPO_WAVEOUT_SOURCE = 0,
-    //KSPIN_TOPO_SYNTHOUT_SOURCE,
-    //KSPIN_TOPO_SYNTHIN_SOURCE,
     KSPIN_TOPO_MIC_SOURCE,
     KSPIN_TOPO_LINEOUT_DEST,
     KSPIN_TOPO_WAVEIN_DEST
@@ -116,10 +114,7 @@ enum
 {
     KSNODE_TOPO_WAVEOUT_VOLUME = 0,
     KSNODE_TOPO_WAVEOUT_MUTE,
-    //KSNODE_TOPO_SYNTHOUT_VOLUME,
-    //KSNODE_TOPO_SYNTHOUT_MUTE,
     KSNODE_TOPO_MIC_VOLUME,
-    //KSNODE_TOPO_SYNTHIN_VOLUME,
     KSNODE_TOPO_LINEOUT_MIX,
     KSNODE_TOPO_LINEOUT_VOLUME,
     KSNODE_TOPO_WAVEIN_MUX
