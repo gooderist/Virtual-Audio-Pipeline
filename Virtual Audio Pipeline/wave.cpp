@@ -255,11 +255,11 @@ Return Value:
             // Since there are two 8-channel speaker configs, make sure
             // the appropriate one is used.  If neither is set, default
             // to KSAUDIO_SPEAKER_7POINT1_SURROUND.
-            if(m_ChannelConfig.ActiveSpeakerPositions == KSAUDIO_SPEAKER_7POINT1)
+            /*if(m_ChannelConfig.ActiveSpeakerPositions == KSAUDIO_SPEAKER_7POINT1)
             {
                 pWfxExt->dwChannelMask = KSAUDIO_SPEAKER_7POINT1;
             }
-            else
+            else*/ // NOTE(will): force 7.1 surround config
             {
                 pWfxExt->dwChannelMask = KSAUDIO_SPEAKER_7POINT1_SURROUND;
             }
