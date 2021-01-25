@@ -50,7 +50,7 @@ static PCPIN_DESCRIPTOR MiniportPins[] = {
       0                                             // Reserved
     }
   },
-
+/*
   // KSPIN_TOPO_MIC_SOURCE
   {
     0,
@@ -71,7 +71,7 @@ static PCPIN_DESCRIPTOR MiniportPins[] = {
       0                                             // Reserved
     }
   },
-
+  */
   // KSPIN_TOPO_LINEOUT_DEST
   {
     0,
@@ -93,7 +93,7 @@ static PCPIN_DESCRIPTOR MiniportPins[] = {
       0                                             // Reserved
     }
   },
-
+  /*
   // KSPIN_TOPO_WAVEIN_DEST
   {
     0,
@@ -113,7 +113,7 @@ static PCPIN_DESCRIPTOR MiniportPins[] = {
       NULL,                                         // Name
       0                                             // Reserved
     }
-  }
+  }*/
 };
 
 //=============================================================================
@@ -187,7 +187,7 @@ static PCNODE_DESCRIPTOR TopologyNodes[] = {
     &KSNODETYPE_MUTE,       // Type
     &KSAUDFNAME_WAVE_MUTE   // Name
   },
-
+/* // NOTE(will): remove unneeded nodes
   // KSNODE_TOPO_MIC_VOLUME
   {
     0,                      // Flags
@@ -203,7 +203,7 @@ static PCNODE_DESCRIPTOR TopologyNodes[] = {
     &KSNODETYPE_SUM,        // Type
     NULL                    // Name
   },
-
+  
   // KSNODE_TOPO_LINEOUT_VOLUME
   {
     0,                      // Flags
@@ -211,14 +211,14 @@ static PCNODE_DESCRIPTOR TopologyNodes[] = {
     &KSNODETYPE_VOLUME,     // Type
     &KSAUDFNAME_MASTER_VOLUME // Name
   },
-
+  
   // KSNODE_TOPO_WAVEIN_MUX
   {
     0,                      // Flags
     &AutomationMux,         // AutomationTable
     &KSNODETYPE_MUX,        // Type
     &KSAUDFNAME_RECORDING_SOURCE // Name
-  },
+  },*/
 };
 
 //=============================================================================
@@ -226,14 +226,14 @@ static PCCONNECTION_DESCRIPTOR MiniportConnections[] = {
   //  FromNode,                     FromPin,                        ToNode,                      ToPin
   {   PCFILTER_NODE,                KSPIN_TOPO_WAVEOUT_SOURCE,      KSNODE_TOPO_WAVEOUT_VOLUME,  1 },
   {   KSNODE_TOPO_WAVEOUT_VOLUME,   0,                              KSNODE_TOPO_WAVEOUT_MUTE,    1 },
-  {   KSNODE_TOPO_WAVEOUT_MUTE,     0,                              KSNODE_TOPO_LINEOUT_MIX,     1 },
-  {   PCFILTER_NODE,                KSPIN_TOPO_MIC_SOURCE,          KSNODE_TOPO_MIC_VOLUME,      1 },
-  {   KSNODE_TOPO_MIC_VOLUME,       0,                              KSNODE_TOPO_WAVEIN_MUX,      4 },
+  {   KSNODE_TOPO_WAVEOUT_MUTE,     0,                              PCFILTER_NODE, KSPIN_TOPO_LINEOUT_DEST }, //KSNODE_TOPO_LINEOUT_MIX,     1 },
+  //{   PCFILTER_NODE,                KSPIN_TOPO_MIC_SOURCE,          KSNODE_TOPO_MIC_VOLUME,      1 },
+  //{   KSNODE_TOPO_MIC_VOLUME,       0,                              KSNODE_TOPO_WAVEIN_MUX,      4 },
 
-  {   KSNODE_TOPO_LINEOUT_MIX,      0,                              KSNODE_TOPO_LINEOUT_VOLUME,  1 },
-  {   KSNODE_TOPO_LINEOUT_VOLUME,   0,                              PCFILTER_NODE,               KSPIN_TOPO_LINEOUT_DEST },
+  //{   KSNODE_TOPO_LINEOUT_MIX,      0,                              KSNODE_TOPO_LINEOUT_VOLUME,  1 },
+  //{   KSNODE_TOPO_LINEOUT_VOLUME,   0,                              PCFILTER_NODE,               KSPIN_TOPO_LINEOUT_DEST },
 
-  {   KSNODE_TOPO_WAVEIN_MUX,       0,                              PCFILTER_NODE,               KSPIN_TOPO_WAVEIN_DEST }
+  //{   KSNODE_TOPO_WAVEIN_MUX,       0,                              PCFILTER_NODE,               KSPIN_TOPO_WAVEIN_DEST }
 };
 
 //=============================================================================

@@ -205,10 +205,12 @@ Return Value:
                     NonPagedPool 
                 );
         } else {
-            ntStatus = PcNewMiniport(
+            ntStatus = STATUS_NOT_SUPPORTED;
+                // NOTE(will): bypass in case we are creating mic by default
+                /*PcNewMiniport(
                     (PMINIPORT *) &miniport, 
                     MiniportClassId
-                );
+                );*/
         }
     }
 
@@ -365,7 +367,7 @@ Return Value:
         // register wave <=> topology connections
         // This will connect bridge pins of wavecyclic and topology
         // miniports.
-        if ((TopologyPhysicalConnections.ulTopologyOut != (ULONG)-1) &&
+        /*if ((TopologyPhysicalConnections.ulTopologyOut != (ULONG)-1) &&
             (TopologyPhysicalConnections.ulWaveIn != (ULONG)-1))
         {		
 			ntStatus = PcRegisterPhysicalConnection( 
@@ -375,7 +377,7 @@ Return Value:
 					unknownWave,
 					TopologyPhysicalConnections.ulWaveIn
             );
-        }
+        }*/
         if (NT_SUCCESS(ntStatus)) {
             if ((TopologyPhysicalConnections.ulWaveOut != (ULONG)-1) &&
                 (TopologyPhysicalConnections.ulTopologyIn != (ULONG)-1))

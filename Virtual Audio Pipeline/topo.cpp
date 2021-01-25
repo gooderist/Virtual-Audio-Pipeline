@@ -31,8 +31,8 @@ Abstract:
 PHYSICALCONNECTIONTABLE TopologyPhysicalConnections =
 {
   KSPIN_TOPO_WAVEOUT_SOURCE,  // TopologyIn
-  KSPIN_TOPO_WAVEIN_DEST,     // TopologyOut
-  KSPIN_WAVE_CAPTURE_SOURCE,  // WaveIn
+  //KSPIN_TOPO_WAVEIN_DEST,     // TopologyOut
+  //KSPIN_WAVE_CAPTURE_SOURCE,  // WaveIn
   KSPIN_WAVE_RENDER_SOURCE    // WaveOut
 };
 
@@ -238,7 +238,7 @@ Return Value:
 
   if (NT_SUCCESS(ntStatus)) {
     m_FilterDescriptor = &MiniportFilterDescriptor;
-    m_AdapterCommon->MixerMuxWrite(KSPIN_TOPO_MIC_SOURCE);
+    // NOTE(will): eliminate mic // m_AdapterCommon->MixerMuxWrite(KSPIN_TOPO_MIC_SOURCE);
   }
 
   return ntStatus;

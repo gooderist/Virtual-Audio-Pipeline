@@ -86,27 +86,27 @@ DEFINE_GUIDSTRUCT("946A7B1A-EBBC-422a-A81F-F07C8D40D3B4", NAME_SONICSAUDIO);
 
 // Wave pins
 enum 
-{
-    KSPIN_WAVE_CAPTURE_SINK = 0,
-    KSPIN_WAVE_CAPTURE_SOURCE,
+{ // NOTE(will): remove microphone related pins
+    //KSPIN_WAVE_CAPTURE_SINK = 0,
+    //KSPIN_WAVE_CAPTURE_SOURCE,
     KSPIN_WAVE_RENDER_SINK, 
     KSPIN_WAVE_RENDER_SOURCE
 };
 
 // Wave Topology nodes.
 enum 
-{
-    KSNODE_WAVE_ADC = 0,
+{ // NOTE(will): remove microphone related nodes
+    //KSNODE_WAVE_ADC = 0,
     KSNODE_WAVE_DAC
 };
 
 // topology pins.
 enum
-{
+{ // NOTE(will): remove all unnecessary pins
     KSPIN_TOPO_WAVEOUT_SOURCE = 0,
-    KSPIN_TOPO_MIC_SOURCE,
+    //KSPIN_TOPO_MIC_SOURCE,
     KSPIN_TOPO_LINEOUT_DEST,
-    KSPIN_TOPO_WAVEIN_DEST
+    //KSPIN_TOPO_WAVEIN_DEST
 };
 
 // topology nodes.
@@ -114,10 +114,10 @@ enum
 {
     KSNODE_TOPO_WAVEOUT_VOLUME = 0,
     KSNODE_TOPO_WAVEOUT_MUTE,
-    KSNODE_TOPO_MIC_VOLUME,
-    KSNODE_TOPO_LINEOUT_MIX,
-    KSNODE_TOPO_LINEOUT_VOLUME,
-    KSNODE_TOPO_WAVEIN_MUX
+    //KSNODE_TOPO_MIC_VOLUME,
+    //KSNODE_TOPO_LINEOUT_MIX,
+    //KSNODE_TOPO_LINEOUT_VOLUME,
+    //KSNODE_TOPO_WAVEIN_MUX
 };
 
 //=============================================================================
@@ -127,8 +127,8 @@ enum
 // Connection table for registering topology/wave bridge connection
 typedef struct _PHYSICALCONNECTIONTABLE {
     ULONG       ulTopologyIn;
-    ULONG       ulTopologyOut;
-    ULONG       ulWaveIn;
+    //ULONG       ulTopologyOut;
+    //ULONG       ulWaveIn;
     ULONG       ulWaveOut;
 } PHYSICALCONNECTIONTABLE, *PPHYSICALCONNECTIONTABLE;
 

@@ -52,7 +52,7 @@ static PKSDATARANGE PinDataRangePointersBridge[] = {
 
 //=============================================================================
 static PCPIN_DESCRIPTOR MiniportPins[] = {
-    // Wave In Streaming Pin (Capture) KSPIN_WAVE_CAPTURE_SINK
+   /* // Wave In Streaming Pin (Capture) KSPIN_WAVE_CAPTURE_SINK
     {
         MAX_OUTPUT_STREAMS,
         MAX_OUTPUT_STREAMS,
@@ -93,7 +93,7 @@ static PCPIN_DESCRIPTOR MiniportPins[] = {
             0
         }
     },
-  
+  */
     // Wave Out Streaming Pin (Renderer) KSPIN_WAVE_RENDER_SINK
     {
         MAX_INPUT_STREAMS,
@@ -154,13 +154,13 @@ DEFINE_PCAUTOMATION_TABLE_PROP(AutomationDAC, PropertiesDAC);
 
 //=============================================================================
 static PCNODE_DESCRIPTOR MiniportNodes[] = {
-    // KSNODE_WAVE_ADC
+/*    // KSNODE_WAVE_ADC
     {
         0,                      // Flags
         NULL,                   // AutomationTable
         &KSNODETYPE_ADC,        // Type
         NULL                    // Name
-    },
+    },*/
     // KSNODE_WAVE_DAC
     {
         0,                      // Flags
@@ -172,8 +172,8 @@ static PCNODE_DESCRIPTOR MiniportNodes[] = {
 
 //=============================================================================
 static PCCONNECTION_DESCRIPTOR MiniportConnections[] = {
-    { PCFILTER_NODE,        KSPIN_WAVE_CAPTURE_SOURCE,  KSNODE_WAVE_ADC,     1 },    
-    { KSNODE_WAVE_ADC,      0,                          PCFILTER_NODE,       KSPIN_WAVE_CAPTURE_SINK },    
+    //{ PCFILTER_NODE,        KSPIN_WAVE_CAPTURE_SOURCE,  KSNODE_WAVE_ADC,     1 },    
+    //{ KSNODE_WAVE_ADC,      0,                          PCFILTER_NODE,       KSPIN_WAVE_CAPTURE_SINK },    
 
     { PCFILTER_NODE,        KSPIN_WAVE_RENDER_SINK,     KSNODE_WAVE_DAC,     1 },    
     { KSNODE_WAVE_DAC,      0,                          PCFILTER_NODE,       KSPIN_WAVE_RENDER_SOURCE },    
