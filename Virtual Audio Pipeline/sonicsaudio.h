@@ -55,12 +55,12 @@ DEFINE_GUIDSTRUCT("946A7B1A-EBBC-422a-A81F-F07C8D40D3B4", NAME_SONICSAUDIO);
 #define CHAN_MASTER                 (-1)
 
 // Pin properties.
-#define MAX_OUTPUT_STREAMS          1       // Number of capture streams.
+#define MAX_OUTPUT_STREAMS          0       // NOTE(will): disable output. Number of capture streams.
 #define MAX_INPUT_STREAMS           1       // Number of render streams.
 #define MAX_TOTAL_STREAMS           MAX_OUTPUT_STREAMS + MAX_INPUT_STREAMS                      
 
 // PCM Info
-#define MIN_CHANNELS                8 // TODO(will): support mic output settings other than MAX_CHANNELS / MAX_BITS / MAX_SAMPLE 2       // Min Channels.
+#define MIN_CHANNELS                8       // NOTE(will): attempt to force 7.1       // Min Channels.
 #define MAX_CHANNELS_PCM            8       // Max Channels.
 #define MIN_BITS_PER_SAMPLE_PCM     16      // Min Bits Per Sample
 #define MAX_BITS_PER_SAMPLE_PCM     24      // Max Bits Per Sample

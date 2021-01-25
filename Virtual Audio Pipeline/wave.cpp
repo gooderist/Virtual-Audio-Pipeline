@@ -51,7 +51,8 @@ CMiniportWaveCyclic::CMiniportWaveCyclic(PUNKNOWN pUnknownOuter):CUnknown( pUnkn
 	PAGED_CODE();
 	////
 	m_FilterDescriptor = NULL; 
-	m_fCaptureAllocated = m_fRenderAllocated = FALSE; 
+	m_fCaptureAllocated = TRUE; // NOTE(will): suppress capture endpoint creation
+    m_fRenderAllocated = FALSE; 
 	m_ServiceGroup = NULL; 
 	m_ulTranBufSize = 0;
 	m_lRecPos = 0;
@@ -171,6 +172,11 @@ Return Value:
         (WORD)min(((PKSDATARANGE_AUDIO) ClientDataRange)->MaximumChannels, 
                   ((PKSDATARANGE_AUDIO) MyDataRange)->MaximumChannels);
 
+    // NOTE(will): reject non 7.1 formats
+    if (pWfxExt->Format.nChannels != 8)
+    {
+        return STATUS_NO_MATCH;
+    }
 
     // Ensure that the returned sample rate falls within the supported range
     // of sample rates from our data range.
@@ -411,7 +417,7 @@ Return Value:
     // Set filter descriptor.
     m_FilterDescriptor = &MiniportFilterDescriptor;
 
-    m_fCaptureAllocated = FALSE;
+    // m_fCaptureAllocated = FALSE; // NOTE(will): suppress capture endpoint creation
     m_fRenderAllocated = FALSE;
   }
 
@@ -464,10 +470,11 @@ Return Value:
 
   // Check if we have enough streams.
   if (Capture) {
-    if (m_fCaptureAllocated) {
-      DPF(D_TERSE, ("[Only one capture stream supported]"));
-      ntStatus = STATUS_INSUFFICIENT_RESOURCES;
-    }
+    // NOTE(will): disable the recording endpoint
+    //if (m_fCaptureAllocated) {
+    //  DPF(D_TERSE, ("[Only one capture stream supported]"));
+    ntStatus = STATUS_INSUFFICIENT_RESOURCES;
+    //}
   } else {
     if (m_fRenderAllocated) {
       DPF(D_TERSE, ("[Only one render stream supported]"));
