@@ -158,6 +158,7 @@
     <TargetName>vrtaupipe</TargetName>
     <IntDir>$(Platform)\$(ConfigurationName)\</IntDir>
     <OutDir>$(SolutionDir)$(Platform)\$(ConfigurationName)\</OutDir>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -169,6 +170,7 @@
     <IntDir>$(Platform)\$(ConfigurationName)\</IntDir>
     <OutDir>$(SolutionDir)$(Platform)\$(ConfigurationName)\</OutDir>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x64;$(WDKContentRoot)tools\tracing\x64</ExecutablePath>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
